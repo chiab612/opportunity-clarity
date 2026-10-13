@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#155eef"><meta name="description" content="在報名前整理活動成本、參與條件與公開資訊。">
+  <title>機會透明評估工具 Opportunity Clarity</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="#top" aria-label="Opportunity Clarity 首頁"><span class="brand-mark">OC</span><span><strong>機會透明評估工具</strong><small>Opportunity Clarity</small></span></a><span class="local-note"><i></i>資料僅存於此瀏覽器</span></header>
+<main id="top">
+  <section class="hero"><div><span class="eyebrow">報名前，先看清楚條件</span><h1>讓參與機會，<br class="mobile-break">資訊更清楚。</h1><p>整理活動成本、時間與公開資訊，協助你決定下一步。評估只依據你輸入的資料，不替活動或主辦方下定論。</p></div><div class="hero-art" aria-hidden="true"><div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div><div class="hero-card"><span class="mini-label">參與前檢視</span><div class="hero-check">✓</div><strong>資訊・時間・預算</strong><span class="hero-dots">●　●　●</span></div></div></section>
+  <div class="toolbar"><div><span class="toolbar-title">開始評估</span><span class="toolbar-hint">可先載入示範資料，熟悉各欄位。</span></div><div class="toolbar-actions"><button class="btn btn-quiet" id="demoBtn" type="button">載入示範活動</button><button class="btn btn-quiet" id="resetBtn" type="button">重設表單</button></div></div>
+  <div class="workspace">
+   <form id="assessmentForm" novalidate>
+    <section class="panel"><div class="section-heading"><span class="step">01</span><div><h2>活動資訊</h2><p>依活動頁面或主辦方提供的內容填寫；沒有說明可選「未提供」。</p></div></div>
+     <label class="field-label" for="eventName">活動名稱 <span class="optional">選填</span></label><input id="eventName" name="eventName" type="text" maxlength="120" placeholder="例如：週末 AI 入門工作坊">
+     <div class="subhead"><strong>預估必要支出</strong><span>新臺幣（NT$）</span></div><div class="field-grid three"><label class="field-label" for="fee">報名費<input id="fee" name="fee" type="number" min="0" max="10000000" step="1" inputmode="numeric" placeholder="0"></label><label class="field-label" for="transport">來回交通費<input id="transport" name="transport" type="number" min="0" max="10000000" step="1" inputmode="numeric" placeholder="0"></label><label class="field-label" for="otherCost">其他必要支出<input id="otherCost" name="otherCost" type="number" min="0" max="10000000" step="1" inputmode="numeric" placeholder="0"></label></div><p class="field-help">餐飲或交通補助請在下方說明。費用欄位空白會視為尚未確認，而非零元。</p>
+     <div class="field-grid two"><label class="field-label" for="duration">活動所需時間（小時）<input id="duration" name="duration" type="number" min="0" max="10000" step="0.5" inputmode="decimal" placeholder="例如 6"></label><label class="field-label" for="support">餐飲或交通補助<select id="support" name="support"><option value="unknown">未提供資訊</option><option value="yes">有提供（請於備註說明）</option><option value="no">沒有提供</option></select></label></div>
+    </section>
+    <section class="panel"><div class="section-heading"><span class="step">02</span><div><h2>公開參與資訊</h2><p>完整度反映資訊是否公開，不代表活動品質、公平性或主辦方意圖。</p></div></div><div class="checks-grid">
+     <label class="check-row"><span><strong>參加資格</strong><small>對象、先備條件等</small></span><select name="eligibility" aria-label="參加資格是否明確"><option value="unknown">未提供</option><option value="yes">有說明</option><option value="no">明確表示無限制</option></select></label>
+     <label class="check-row"><span><strong>錄取及候補規則</strong><small>通知、候補遞補方式等</small></span><select name="selection" aria-label="錄取及候補規則是否明確"><option value="unknown">未提供</option><option value="yes">有說明</option><option value="no">明確表示不設候補</option></select></label>
+     <label class="check-row"><span><strong>評選標準及權重</strong><small>評分項目、比重或排序方式</small></span><select name="criteria" aria-label="評選標準及權重是否公開"><option value="unknown">未提供</option><option value="yes">有公開</option><option value="no">不適用（非甄選制）</option></select></label>
+     <label class="check-row"><span><strong>無障礙及參與需求</strong><small>場地、設備、聯繫窗口等</small></span><select name="accessibility" aria-label="無障礙或其他參與需求資訊是否明確"><option value="unknown">未提供</option><option value="yes">有說明</option><option value="no">表示場地無障礙（細節請備註）</option></select></label>
+     <label class="check-row"><span><strong>取消、退費或變更規則</strong><small>取消期限、退費方式、異動通知</small></span><select name="policy" aria-label="取消退費或變更規則是否公開"><option value="unknown">未提供</option><option value="yes">有公開</option><option value="no">明確表示不退費／不適用</option></select></label>
+    </div><p class="field-help">「未提供」表示目前手邊資訊不足；如選擇不適用或否，請用來源或備註記下原文依據。</p>
+     <div class="field-grid two"><label class="field-label" for="source">資訊來源網址 <span class="optional">選填</span><input id="source" name="source" type="url" maxlength="500" placeholder="https://example.com/event"></label><label class="field-label" for="eventNotes">活動資訊備註 <span class="optional">選填</span><textarea id="eventNotes" name="eventNotes" rows="3" maxlength="1000" placeholder="補助金額、資格細節、依據原文等"></textarea></label></div>
+    </section>
+    <section class="panel"><div class="section-heading"><span class="step">03</span><div><h2>你的可投入條件</h2><p>只填寫用於這次評估的數字。無須提供姓名、診斷或其他敏感個人資料。</p></div></div><div class="field-grid two"><label class="field-label" for="budget">可負擔的活動總預算（NT$）<input id="budget" name="budget" type="number" min="0" max="10000000" step="1" inputmode="numeric" placeholder="例如 1500"></label><label class="field-label" for="availableTime">可投入時間（小時）<input id="availableTime" name="availableTime" type="number" min="0" max="10000" step="0.5" inputmode="decimal" placeholder="例如 8"></label></div><label class="field-label" for="personalNotes">其他參與限制或考量 <span class="optional">選填</span></label><textarea id="personalNotes" name="personalNotes" rows="3" maxlength="1000" placeholder="例如：只能搭大眾運輸、需要中途休息。請勿輸入可識別身分的敏感資料。"></textarea></section>
+    <div class="form-actions"><button class="btn btn-primary" type="submit">重新分析</button><button class="btn btn-outline" id="clearBtn" type="button">清除資料</button></div><p class="form-error" id="formError" role="alert" aria-live="polite"></p>
+   </form>
+   <aside class="results" aria-label="評估結果"><div class="result-head"><div><span class="eyebrow">你的評估摘要</span><h2>分開檢視三個面向</h2></div><span class="live-dot" title="結果會依輸入更新"></span></div>
+    <article class="result-card" id="costCard"><div class="result-card-top"><span class="result-icon cost-icon">＄</span><span class="status-pill" id="costStatus">待填寫</span></div><h3>經濟負擔</h3><div class="big-value" id="costTotal">—</div><p id="costDetail">填入活動費用與你的預算後比較。</p></article>
+    <article class="result-card" id="timeCard"><div class="result-card-top"><span class="result-icon time-icon">◷</span><span class="status-pill" id="timeStatus">待填寫</span></div><h3>時間條件</h3><div class="big-value" id="timeValue">—</div><p id="timeDetail">填入活動所需時間與可投入時間後比較。</p></article>
+    <article class="result-card" id="infoCard"><div class="result-card-top"><span class="result-icon info-icon">≡</span><span class="status-pill" id="infoStatus">待填寫</span></div><h3>公開資訊完整度</h3><div class="big-value"><span id="infoPercent">—</span><small>%</small></div><div class="progress-track"><span id="infoProgress"></span></div><p id="infoDetail">5 個公開資訊項目，每項等權計算。</p></article>
+    <div class="missing-box"><h3><span class="missing-mark">!</span> 建議確認</h3><ul id="missingList"><li>填寫活動資訊後，這裡會列出待確認項目。</li></ul></div>
+    <div class="result-actions"><button class="btn btn-outline" id="copyBtn" type="button">複製分析摘要</button><button class="btn btn-outline" id="downloadBtn" type="button">下載文字報告</button></div><p class="privacy-note"><span>▣</span> 你的資料只保存在自己的瀏覽器，不會自動上傳。使用公用裝置時，請記得清除資料。</p>
+   </aside>
+  </div>
+  <section class="method"><div class="method-icon">i</div><div><h2>如何閱讀這份評估</h2><p><strong>預估支出</strong>＝報名費＋來回交通費＋其他必要支出。只有已填寫的費用才能計算總額。補助是否足夠會受資格、金額與核銷方式影響，請另行確認。</p><p><strong>資訊完整度</strong>以 5 個公開資訊項目等權計算：每項選擇「有說明／有公開／不適用」算 1 項已交代；「未提供」算尚待確認。這只是公開資訊盤點，不是對公平、品質或意圖的判斷。</p></div></section>
+  <footer>Opportunity Clarity <span>・</span> 一份幫助你看清參與條件的工具</footer>
+</main><div class="toast" id="toast" role="status" aria-live="polite"></div><script src="app.js"></script></body></html>
